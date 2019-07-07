@@ -8,20 +8,29 @@ class App extends React.Component {
     super(props);
   
     this.state = {
-       lat: undefined
+       lat: undefined,
+       errorMessage: ''
     };
 
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
-        this.setState({ lat: position.coords.latitude })
+        this.setState({ lat: position.coords.latitude });
       },
-      (error) => console.log(error)
+      (error) => {
+        this.setState({ errorMessage: error.message });
+      }
     );
   }
   
 
   render() {
-    return <div>Latitude: { this.state.lat }</div>;
+    return (
+      <div>
+        Latitude: { this.state.lat }
+        <br/>
+        Error: { this.state.errorMessage }
+      </div>
+    );
   }
 
 }
