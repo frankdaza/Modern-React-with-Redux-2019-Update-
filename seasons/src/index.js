@@ -18,7 +18,7 @@ class App extends React.Component {
   }
   
   componentDidUpdate() {
-    console.log("My component was just updated - it rerendered!");
+    //console.log("My component was just updated - it rerendered!");
   }
   
 
